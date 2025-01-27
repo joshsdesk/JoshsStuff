@@ -1,14 +1,9 @@
 /* General Styles */
 body {
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 320px;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
   text-rendering: optimizeLegibility;
@@ -18,10 +13,10 @@ body {
 
 /* Root Container */
 #root {
-  width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 1rem 2rem;
+  padding: 2rem;
+  text-align: center;
 }
 
 /* Anchor Links */
@@ -35,35 +30,7 @@ a:hover {
   color: #535bf2;
 }
 
-/* Headings */
-h1 {
-  font-size: 3em;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-/* Buttons */
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s ease, background-color 0.25s ease;
-}
-button:hover {
-  border-color: #646cff;
-  background-color: #333333;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-/* Header Styles */
+/* Header */
 .header-nav {
   display: flex;
   align-items: center;
@@ -77,7 +44,7 @@ button:focus-visible {
   height: 50px;
 }
 
-.header-nav ul {
+.nav-links {
   list-style: none;
   display: flex;
   gap: 1.5rem;
@@ -85,50 +52,23 @@ button:focus-visible {
   padding: 0;
 }
 
-.header-nav ul li {
+.nav-links li a {
   text-transform: uppercase;
-}
-
-.header-nav ul li a {
-  text-decoration: none;
   color: rgba(255, 255, 255, 0.87);
   transition: color 0.3s ease;
 }
-
-.header-nav ul li a.active {
+.nav-links li a.active {
   color: #646cff;
 }
-
-.header-nav ul li a:hover {
+.nav-links li a:hover {
   color: #535bf2;
 }
 
-/* Footer Styles */
-.footer {
-  text-align: center;
-  padding: 1rem 0;
-  background-color: #181818;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.footer .social-icons a {
-  margin: 0 0.5rem;
-  color: rgba(255, 255, 255, 0.7);
-  text-decoration: none;
-  font-size: 1.5rem;
-  transition: color 0.3s ease;
-}
-
-.footer .social-icons a:hover {
-  color: #646cff;
-}
-
-/* About Page */
+/* About Section */
 #about {
-  text-align: center;
   padding: 2rem 1rem;
+  text-align: center;
 }
-
 #about img.profile-img {
   margin-top: 1rem;
   width: 150px;
@@ -137,79 +77,148 @@ button:focus-visible {
   border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Portfolio Page */
+/* Portfolio Section */
 #portfolio {
   padding: 2rem 1rem;
   text-align: center;
 }
-
-.project {
-  display: inline-block;
-  width: calc(33.33% - 2rem);
-  margin: 1rem;
-  text-align: center;
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.portfolio-card {
   background-color: #1a1a1a;
   border-radius: 10px;
   overflow: hidden;
+  text-align: center;
+  padding: 1rem;
+  color: #fff;
   transition: transform 0.3s ease;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
-
-.project img {
+.portfolio-card img {
   width: 100%;
-  display: block;
+  height: 200px;
+  object-fit: cover;
+}
+.portfolio-card h2 {
+  margin: 1rem 0;
+}
+.portfolio-card a {
+  color: #646cff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+.portfolio-card a:hover {
+  color: #535bf2;
 }
 
-.project:hover {
-  transform: translateY(-5px);
-}
-
-/* Contact Page */
+/* Contact Section */
 #contact {
   padding: 2rem 1rem;
   text-align: center;
 }
-
 #contact form {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  max-width: 600px;
+  max-width: 500px;
   margin: 0 auto;
 }
-
 #contact input,
 #contact textarea {
   width: 100%;
-  max-width: 600px;
-  padding: 1rem;
+  padding: 0.8rem;
   font-size: 1rem;
-  border: none;
-  border-radius: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
   background-color: #1a1a1a;
-  color: #ffffff;
+  color: #fff;
 }
-
 #contact button {
-  width: auto;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: #646cff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+#contact button:hover {
+  transform: scale(1.1);
+}
+.social-links {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.social-links a {
+  color: #646cff;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+.social-links a:hover {
+  color: #535bf2;
 }
 
-/* Resume Page */
+/* Resume Section */
 #resume {
   padding: 2rem 1rem;
   text-align: center;
 }
-
 #resume a {
   display: inline-block;
   margin: 1rem 0;
-  padding: 0.5rem 1rem;
-  background-color: #646cff;
-  color: #ffffff;
-  border-radius: 8px;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
   text-decoration: none;
+  color: #fff;
+  background-color: #646cff;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+#resume a:hover {
+  transform: scale(1.1);
+}
+#resume ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem auto;
+  max-width: 400px;
+}
+#resume ul li {
+  padding: 0.5rem 0;
+  font-size: 1.2rem;
+  color: #fff;
+  background-color: #1a1a1a;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+  text-align: center;
 }
 
-#resume a:hover {
-  background-color: #535bf2;
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 1rem 0;
+  background-color: #181818;
+  color: rgba(255, 255, 255, 0.7);
+}
+.footer .social-icons a {
+  margin: 0 0.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+.footer .social-icons a:hover {
+  color: #646cff;
 }
